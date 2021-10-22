@@ -1,7 +1,7 @@
 <?php
-// include database connection file
+// sertakan file koneksi database
 include_once("koneksi.php");
-// Check if form is submitted for user update, then redirect to homepage after update
+// Periksa apakah formulir dikirimkan untuk pembaruan pengguna, lalu arahkan kembali ke beranda setelah pembaruan
 if(isset($_POST['update']))
 {
  $nim = $_POST['nim'];
@@ -9,18 +9,18 @@ if(isset($_POST['update']))
  $jkel=$_POST['jkel'];
  $alamat=$_POST['alamat'];
  $tgllhr=$_POST['tgllhr'];
- // update user data
+ // perbarui data pengguna
 $result = mysqli_query($con, "UPDATE mahasiswa SET
 nama='$nama',jkel='$jkel',alamat='$alamat',tgllhr='$tgllhr' WHERE nim='$nim'");
- // Redirect to homepage to display updated user in list
+ // Arahkan ulang ke beranda untuk menampilkan pengguna yang diperbarui dalam daftar
 header("Location: index.php");
 }
 ?>
 <?php
-// Display selected user data based on id
-// Getting id from url
+// Menampilkan data pengguna yang dipilih berdasarkan id
+// Mendapatkan id dari url
 $nim = $_GET['nim'];
-// Fetech user data based on id
+// Ambil data pengguna berdasarkan id
 $result = mysqli_query($con, "SELECT * FROM mahasiswa WHERE nim='$nim'");
 while($user_data = mysqli_fetch_array($result))
 {
@@ -33,7 +33,7 @@ $tgllhr = $user_data['tgllhr'];
 ?>
 <html>
 <head> 
-	<title>Edit Data Mahasiswa</title>
+	<title>Edit Data Mahasiswa</title>//judu halaman web
 </head>
 <body>
  <a href="index.php">Home</a>
@@ -43,19 +43,19 @@ $tgllhr = $user_data['tgllhr'];
 <tr>
 <td>Nama</td>
 <td><input type="text" name="nama" value=<?php echo $nama;?>></td>
-</tr>
+</tr>//inputan nama
 <tr>
 <td>Gender</td>
 <td><input type="text" name="jkel" value=<?php echo $jkel;?>></td>
-</tr>
+</tr>//inputan gender
 <tr>
 <td>alamat</td>
 <td><input type="text" name="alamat" value=<?php echo $alamat;?>></td>
-</tr>
+</tr>//inputan alamat
 <tr>
 <td>Tgl Lahir</td>
 <td><input type="text" name="tgllhr" value=<?php echo $tgllhr;?>></td>
-</tr>
+</tr>//inputan tgl lahir
 <tr>
 <td><input type="hidden" name="nim" value=<?php echo $_GET['nim'];?>></td>
 <td><input type="submit" name="update" value="Update"></td>
