@@ -6,10 +6,10 @@
     </form>
     <table border='1'>
         <tr>
-            <th>No</th>
-            <th>Username</th>
-            <th>NamaLengkap</th>
-            <th>Email</th>
+            <th>No</th> //menampilkan no
+            <th>Username</th> //menampilkan user
+            <th>NamaLengkap</th> //menampilkan nama lengkap
+            <th>Email</th>menampilkan emai
             <th>Aksi</th>
         </tr>";
     include "koneksi.php";
